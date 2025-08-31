@@ -43,7 +43,7 @@ namespace Task5
                             break;
                     }
                     //q.TakeInput();
-                    if (q != null)
+                    if (q != null && q.TakeInput())
                     {
 
 
@@ -74,19 +74,19 @@ namespace Task5
                             }
                         }
                     }
-                    else throw new Exception();
+                    else throw new ArgumentException();
                         
                 }
                 MainMenu.Menu();
             }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine("You Entered Wrong Value");
-            }
+            //catch (ArgumentException ex)
+            //{
+            //    Console.WriteLine("You Entered Wrong Value");
+            //}
 
             catch (Exception ex)
             {
-                Console.WriteLine("Something Went Wrong");
+                Console.WriteLine(ex.Message);
             }
            
         }

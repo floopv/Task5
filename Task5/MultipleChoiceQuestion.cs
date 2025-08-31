@@ -38,7 +38,7 @@ namespace Task5
             }
         }
 
-        public override void TakeInput()
+        public override bool TakeInput()
         {
             try
             {
@@ -53,6 +53,7 @@ namespace Task5
                 {
                     Console.WriteLine($"Enter Choice NO. {i + 1}");
                     string EnteredChoice = Console.ReadLine();
+                    //if (string.IsNullOrEmpty( EnteredChoice)) { throw new ArgumentException(); }
                     this.Choices[i] = EnteredChoice;
                 }
                 Console.WriteLine("Enter NO. Of Correct Choices:");
@@ -66,8 +67,10 @@ namespace Task5
                         this.CorrectAnswers.Add(CorrectChoiceNumber);
                     else Console.WriteLine("Wrong Input");
                 }
+                return true;
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
+            return false ;
         }
 
         public override void Display()

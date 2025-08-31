@@ -15,7 +15,7 @@ namespace Task5
             try {
                 Console.WriteLine("Enter Question Header :");
                 string input_header = Console.ReadLine();
-                if (string.IsNullOrEmpty(input_header)) { throw new ArgumentException(); }
+                //if (string.IsNullOrEmpty(input_header)) { throw new ArgumentException(); }
                 this.Header = input_header;
                 Console.WriteLine("Enter The Marks :");
                 this.Marks = Convert.ToInt32(Console.ReadLine());
