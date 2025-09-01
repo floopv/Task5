@@ -32,7 +32,7 @@ namespace Task5
             {
                 Console.WriteLine("Enter Question Header :");
                 string input_header = Console.ReadLine();
-                //if (string.IsNullOrEmpty(input_header)) { throw new ArgumentException(); }
+                if (string.IsNullOrWhiteSpace(input_header)) { throw new ArgumentException(); }
                 this.Header = input_header;
                 Console.WriteLine("Enter The Marks :");
                 this.Marks = Convert.ToInt32(Console.ReadLine());
@@ -41,7 +41,7 @@ namespace Task5
                 {
                     Console.WriteLine($"Enter Choice NO. {i + 1}");
                     string EnteredChoice = Console.ReadLine();
-                    if (string.IsNullOrEmpty(EnteredChoice)) { throw new ArgumentException(); }
+                    if (string.IsNullOrWhiteSpace(EnteredChoice)) { throw new ArgumentException(); }
                     this.Choices[i] = EnteredChoice;
                 }
                 Console.WriteLine("Enter Correct Choice Number :");
