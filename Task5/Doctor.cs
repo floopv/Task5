@@ -9,9 +9,22 @@ namespace Task5
 {
      class Doctor : Person
     {
-        List<Question> easyLevel = new List<Question>();
-        List<Question> mediumLevel = new List<Question>();
-        List<Question> hardLevel = new List<Question>();
+        private static List<Question> easyLevel = new List<Question>();
+        private static List<Question> mediumLevel = new List<Question>();
+        private static List<Question> hardLevel = new List<Question>();
+
+        public List<Question> getEasyLevel()
+        {
+            return easyLevel;
+        }
+        public List<Question> getMediumLevel()
+        {
+            return mediumLevel;
+        }
+        public List<Question> getHardLevel()
+        {
+            return hardLevel;
+        }
         public void DoctorMode ()
         {
             

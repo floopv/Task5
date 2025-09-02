@@ -33,7 +33,7 @@ namespace Task5
                 {
                     if (value[i] < 1 || value[i] > noOfChoices)
                         throw new ArgumentException();
-                    correctAnswers.Add(i);
+                    correctAnswers.Add(value[i]);
                 }
             }
         }

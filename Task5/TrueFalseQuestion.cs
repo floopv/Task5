@@ -52,7 +52,7 @@ namespace Task5
                  InputAnswer = Console.ReadLine();
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
-            //if (string.IsNullOrEmpty(InputAnswer)) return false;
+            if (string.IsNullOrWhiteSpace(InputAnswer)) return false;
             bool studentAnswer;
                 switch (InputAnswer.ToLower()[0])
                 {
