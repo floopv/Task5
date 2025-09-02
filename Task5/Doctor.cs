@@ -45,7 +45,7 @@ namespace Task5
                             ok = q.TakeInput();
                             break;
                         default:
-                            Console.WriteLine("wrong choice");
+                            Console.WriteLine("wrong question type");
                             break;
                     }
                     //q.TakeInput();
