@@ -27,23 +27,25 @@ namespace Task5
                     Console.WriteLine("2. Choose One Answer.");
                     Console.WriteLine("3. Choose Multiple Answers.");
                     int TypeChoice = Convert.ToInt32(Console.ReadLine());
+                    bool ok = false;
                     switch (TypeChoice)
                     {
+                        
                         case 1:
                             q = new TrueFalseQuestion();
-                            q.TakeInput();
+                            ok = q.TakeInput();
                             break;
                         case 2:
                             q = new ChooseOneQuestion();
-                            q.TakeInput();
+                            ok = q.TakeInput();
                             break;
                         case 3:
                             q = new MultipleChoiceQuestion();
-                            q.TakeInput();
+                            ok = q.TakeInput();
                             break;
                     }
                     //q.TakeInput();
-                    if (q != null && q.TakeInput())
+                    if (q != null && ok == true)
                     {
 
 
@@ -74,7 +76,7 @@ namespace Task5
                             }
                         }
                     }
-                    else throw new ArgumentException();
+                    //else throw new ArgumentException();
                         
                 }
                 MainMenu.Menu();
