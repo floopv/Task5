@@ -9,11 +9,12 @@ namespace Task5
 {
      class Doctor : Person
     {
-      public void DoctorMode ()
+        List<Question> easyLevel = new List<Question>();
+        List<Question> mediumLevel = new List<Question>();
+        List<Question> hardLevel = new List<Question>();
+        public void DoctorMode ()
         {
-            List<Question> easyLevel = new List<Question>();
-            List<Question> mediumLevel = new List<Question>();
-            List<Question> hardLevel = new List<Question>();
+            
             int noOfQuestions;
             try
             {
@@ -42,6 +43,9 @@ namespace Task5
                         case 3:
                             q = new MultipleChoiceQuestion();
                             ok = q.TakeInput();
+                            break;
+                        default:
+                            Console.WriteLine("wrong choice");
                             break;
                     }
                     //q.TakeInput();
