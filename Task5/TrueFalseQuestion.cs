@@ -40,7 +40,7 @@ namespace Task5
             }
         public override void Display()
         {
-            Console.WriteLine($"Question : {Header}         Marks : {Marks}");
+            Console.WriteLine($"Question : {Header}      , Marks : {Marks}");
             Console.WriteLine("1. True");
             Console.WriteLine("2. False");
         }
@@ -50,7 +50,7 @@ namespace Task5
             string InputAnswer="";
             try
             {
-                Console.WriteLine("Enter Your Answer :");
+                Console.WriteLine("Enter Your Answer : (T/F)");
                  InputAnswer = Console.ReadLine();
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }

@@ -54,7 +54,8 @@ namespace Task5
                     {
                         no_of_questions = choosen_questions.Count / 2;
                     }
-                    no_of_questions = 1;
+                    else 
+                        no_of_questions = 1;
                 }
                 else if (exam_type==2) { no_of_questions = choosen_questions.Count; }
                 int total = 0;

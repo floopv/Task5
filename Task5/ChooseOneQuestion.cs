@@ -60,7 +60,7 @@ namespace Task5
         }
         public override void Display()
         {
-            Console.WriteLine($"Question : {Header}        Marks : {Marks}");
+            Console.WriteLine($"Question : {Header}      , Marks : {Marks}");
             for (int i = 0;i < this.Choices.Length; i++)
             {
                 Console.WriteLine($"{i+1}. {Choices[i]}");
