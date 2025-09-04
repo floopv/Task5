@@ -96,6 +96,7 @@ namespace Task5
                     //else throw new ArgumentException();
                         
                 }
+                Console.WriteLine("Question Added Successfully");
                 MainMenu.Menu();
             }
             //catch (ArgumentException ex)

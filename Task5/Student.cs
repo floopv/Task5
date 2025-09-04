@@ -20,6 +20,12 @@ namespace Task5
                     Console.WriteLine($"{i + 1}. {ExamTypes[i]}");
                 }
                 int exam_type = Convert.ToInt32(Console.ReadLine());
+                if (exam_type < 1 || exam_type > 2)
+                {
+                    Console.WriteLine("Wrong Choice");
+                    return;
+                    //exam_type = Convert.ToInt32(Console.ReadLine());
+                }
                 Console.WriteLine("Please Choose Your Exam Level :");
                 string[] ExamLevels = Enum.GetNames(typeof(LevelType));
                 for (int i = 0; i < ExamLevels.Length; i++)
@@ -27,6 +33,7 @@ namespace Task5
                     Console.WriteLine($"{i + 1}. {ExamLevels[i]}");
                 }
                 int exam_level = Convert.ToInt32(Console.ReadLine());
+                if (exam_level <1  || exam_level > 3) { Console.WriteLine("Wrong Choice"); return; }
                 LevelType lvltype = (LevelType)exam_level - 1;
                 List<Question> choosen_questions = null;
                 int no_of_questions = 0;
@@ -47,9 +54,11 @@ namespace Task5
                         no_of_questions = choosen_questions.Count / 2;
                     no_of_questions = 1;
                 }
-                else { no_of_questions = choosen_questions.Count; }
+                else if (exam_type==2) { no_of_questions = choosen_questions.Count; }
                 int total = 0;
                 int score = 0;
+                if (no_of_questions == 0 || choosen_questions == null)
+                { Console.WriteLine("No Questions Available"); }
                 for (int i = 0; i < no_of_questions; i++)
                 {
                     Question q = choosen_questions[i];
