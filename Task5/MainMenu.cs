@@ -30,6 +30,12 @@ namespace Task5
                         Student student = new Student();
                         student.StudentMode();
                         break;
+                        case 3:
+                        Console.WriteLine("Bye");
+                        break;
+                    default:
+                        Console.WriteLine("Wrong Choice");
+                        break;
                     }
                 
             }

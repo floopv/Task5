@@ -93,8 +93,8 @@ namespace Task5
                             }
                         }
                     }
-                    //else throw new ArgumentException();
-                        
+                    else { Console.WriteLine("Something went wrong"); return; }
+
                 }
                 Console.WriteLine("Question Added Successfully");
                 MainMenu.Menu();

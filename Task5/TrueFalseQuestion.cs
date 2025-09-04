@@ -29,6 +29,8 @@ namespace Task5
                     case 'f':
                         correctAnswer = false;
                         return true;
+                    default :
+                        return false;
                 }
 
             }
