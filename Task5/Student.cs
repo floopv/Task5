@@ -3,14 +3,64 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Task5.Enums;
 
 namespace Task5
 {
-     class Student : Person
+    class Student : Person
     {
-        public void StudentMode ()
+        public void StudentMode()
         {
-
+            try
+            {
+                Console.WriteLine("Welcome! Please Choose Your Exam Type :");
+                string[] ExamTypes = Enum.GetNames(typeof(ExamType));
+                for (int i = 0; i < ExamTypes.Length; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {ExamTypes[i]}");
+                }
+                int exam_type = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Please Choose Your Exam Level :");
+                string[] ExamLevels = Enum.GetNames(typeof(LevelType));
+                for (int i = 0; i < ExamLevels.Length; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {ExamLevels[i]}");
+                }
+                int exam_level = Convert.ToInt32(Console.ReadLine());
+                LevelType lvltype = (LevelType)exam_level - 1;
+                List<Question> choosen_questions = null;
+                int no_of_questions = 0;
+                switch (lvltype)
+                {
+                    case LevelType.Easy:
+                        choosen_questions = Doctor.getEasyLevel();
+                        break;
+                    case LevelType.Medium:
+                        choosen_questions = Doctor.getMediumLevel();
+                        break;
+                    case LevelType.Hard:
+                        choosen_questions = Doctor.getHardLevel();
+                        break;
+                }
+                if (exam_type == 1) { 
+                    if (no_of_questions != 1)
+                        no_of_questions = choosen_questions.Count / 2;
+                    no_of_questions = 1;
+                }
+                else { no_of_questions = choosen_questions.Count; }
+                int total = 0;
+                int score = 0;
+                for (int i = 0; i < no_of_questions; i++)
+                {
+                    Question q = choosen_questions[i];
+                    q.Display();
+                    bool result = q.CheckAnswers();
+                    if (result) { score += q.Marks; }
+                    total += q.Marks;
+                }
+                Console.WriteLine($"Your Score is {score} out of {total}.");
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
     }
 }

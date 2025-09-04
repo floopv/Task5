@@ -77,7 +77,7 @@ namespace Task5
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
             InputAnswer--;
-            if (InputAnswer <= 0 || InputAnswer >= 3)
+            if (InputAnswer < 0 || InputAnswer >= noOfChoices)
                 return false;
             return InputAnswer == correctAnswer;
         }

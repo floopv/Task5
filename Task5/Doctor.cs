@@ -13,15 +13,15 @@ namespace Task5
         private static List<Question> mediumLevel = new List<Question>();
         private static List<Question> hardLevel = new List<Question>();
 
-        public List<Question> getEasyLevel()
+        public static List<Question> getEasyLevel()
         {
             return easyLevel;
         }
-        public List<Question> getMediumLevel()
+        public static List<Question> getMediumLevel()
         {
             return mediumLevel;
         }
-        public List<Question> getHardLevel()
+        public static List<Question> getHardLevel()
         {
             return hardLevel;
         }

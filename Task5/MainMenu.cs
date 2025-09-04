@@ -26,7 +26,10 @@ namespace Task5
                             Doctor doctor = new Doctor();
                             doctor.DoctorMode();
                             break;
-
+                        case 2:
+                        Student student = new Student();
+                        student.StudentMode();
+                        break;
                     }
                 
             }
