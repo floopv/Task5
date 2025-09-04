@@ -49,16 +49,18 @@ namespace Task5
                         choosen_questions = Doctor.getHardLevel();
                         break;
                 }
-                if (exam_type == 1) { 
-                    if (no_of_questions != 1)
+                if (exam_type == 1) {
+                    if (choosen_questions.Count != 1)
+                    {
                         no_of_questions = choosen_questions.Count / 2;
+                    }
                     no_of_questions = 1;
                 }
                 else if (exam_type==2) { no_of_questions = choosen_questions.Count; }
                 int total = 0;
                 int score = 0;
                 if (no_of_questions == 0 || choosen_questions == null)
-                { Console.WriteLine("No Questions Available"); }
+                { Console.WriteLine("No Questions Available"); return; }
                 for (int i = 0; i < no_of_questions; i++)
                 {
                     Question q = choosen_questions[i];
