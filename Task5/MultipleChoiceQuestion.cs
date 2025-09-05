@@ -31,7 +31,7 @@ namespace Task5
             {
                 for (int i = 0; i < choices.Length; i++)
                 {
-                    if (value[i] < 0 || value[i] > noOfChoices-1)
+                    if (value[i] < 0 || value[i] > noOfChoices - 1)
                         throw new ArgumentException();
                     correctAnswers.Add(value[i]);
                 }
@@ -53,26 +53,33 @@ namespace Task5
                 {
                     Console.WriteLine($"Enter Choice NO. {i + 1}");
                     string EnteredChoice = Console.ReadLine();
-                    if (string.IsNullOrWhiteSpace( EnteredChoice)) { throw new ArgumentException(); }
+                    if (string.IsNullOrWhiteSpace(EnteredChoice)) { throw new ArgumentException(); }
+                    if (choices.Contains(EnteredChoice))
+                        throw new ArgumentException("Duplicate choices are not allowed.");
                     this.Choices[i] = EnteredChoice;
                 }
-                    Console.WriteLine("Enter NO. Of Correct Choices:");
-                    int noOfCorrectChoices = Convert.ToInt32(Console.ReadLine());
-                    for (int i = 0; i < noOfCorrectChoices; i++)
+                Console.WriteLine("Enter NO. Of Correct Choices:");
+                int noOfCorrectChoices = Convert.ToInt32(Console.ReadLine());
+                for (int i = 0; i < noOfCorrectChoices; i++)
+                {
+                    Console.WriteLine($"Enter The Correct Choice Number :");
+                    int CorrectChoiceNumber = Convert.ToInt32(Console.ReadLine());
+                    CorrectChoiceNumber--;
+                    if (CorrectChoiceNumber >= 0 && CorrectChoiceNumber <= noOfChoices - 1)
                     {
-                        Console.WriteLine($"Enter The Correct Choice Number :");
-                        int CorrectChoiceNumber = Convert.ToInt32(Console.ReadLine());
-                        CorrectChoiceNumber--;
-                        if (CorrectChoiceNumber >= 0 && CorrectChoiceNumber <= noOfChoices - 1)
-                            this.CorrectAnswers.Add(CorrectChoiceNumber);
-                        else { Console.WriteLine("Wrong Input"); i--; }
-                    };
-                    
-                
+                        if (correctAnswers.Contains(CorrectChoiceNumber))
+                        { throw new ArgumentException("Duplicate choices are not allowed."); }
+                        this.CorrectAnswers.Add(CorrectChoiceNumber);
+                    }
+                    else { Console.WriteLine("Wrong Input"); i--; }
+                }
+                ;
+
+
                 return true;
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
-            return false ;
+            return false;
         }
 
         public override void Display()
@@ -93,7 +100,7 @@ namespace Task5
                 for (int i = 0; i < correctAnswers.Count; i++)
                 {
                     Console.Write($"Enter answer {i + 1}: ");
-                    studentAnswers[i] = Convert.ToInt32(Console.ReadLine())-1;
+                    studentAnswers[i] = Convert.ToInt32(Console.ReadLine()) - 1;
                 }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
