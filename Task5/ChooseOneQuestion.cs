@@ -42,6 +42,8 @@ namespace Task5
                     Console.WriteLine($"Enter Choice NO. {i + 1}");
                     string EnteredChoice = Console.ReadLine();
                     if (string.IsNullOrWhiteSpace(EnteredChoice)) { throw new ArgumentException(); }
+                    if (choices.Contains(EnteredChoice))
+                        throw new ArgumentException("Duplicate choices are not allowed.");
                     this.Choices[i] = EnteredChoice;
                 }
                 Console.WriteLine("Enter Correct Choice Number :");
